@@ -7,5 +7,4 @@ public class CharacterInput : MonoBehaviour
     public KeyCode jumpkey;
     public KeyCode crouchkey;
     public KeyCode sprintkey;
-    public KeyCode axeswing;
 }

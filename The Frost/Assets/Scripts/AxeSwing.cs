@@ -4,21 +4,19 @@ using UnityEngine;
 
 public class AxeSwing : MonoBehaviour
 {
-    public GameObject TheAxe;
-    CharacterInput characterinput;
+    Animator anim;
 
-   void Start()
+    void Start()
     {
-        characterinput = GetComponent<CharacterInput>();
+        anim = gameObject.GetComponent<Animator>();
     }
-        
-// Update is called once per frame
     void Update()
-    {
-        if (Input.GetKeyDown(characterinput.axeswing))
+{
+        if (Input.GetMouseButtonDown(0))
         {
-            TheAxe.GetComponent<Animator>().Play("AxeSwing");
+            anim.SetTrigger("Active");
         }
-    }
+
+}
 
 }

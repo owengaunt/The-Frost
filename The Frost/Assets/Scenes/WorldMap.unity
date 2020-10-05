@@ -388,7 +388,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20ee342b472e049f7919149a248a2fb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TheAxe: {fileID: 590643983}
 --- !u!95 &590643986
 Animator:
   serializedVersion: 3
