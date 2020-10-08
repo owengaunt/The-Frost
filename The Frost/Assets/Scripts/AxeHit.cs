@@ -8,11 +8,13 @@ public class AxeHit : MonoBehaviour
 {
     Animator anim;
     public Camera fpscam;
-    
+    public GameObject impactEffect;
+
     public bool AxeTrue = true;
     public float range = 1.5f;
     public float Damage = 10f;
     public float swingRate = 1f;
+   
 
     private float nextTimetoSwing = 0f;
 
@@ -28,30 +30,27 @@ public class AxeHit : MonoBehaviour
             nextTimetoSwing = Time.time + 1f / swingRate;
             Hit();
         }
-
-
-        if (Input.GetMouseButtonDown(0))
-        {
-            anim.SetTrigger("Active");
-        }
     }
 
     
     public void Hit()
     {
+        anim.SetTrigger("Active");
 
         RaycastHit hit;
         if(Physics.Raycast(fpscam.transform.position, fpscam.transform.forward, out hit, range))
         {
             UnityEngine.Debug.Log(hit.transform.name);
 
-            Target target = hit.transform.GetComponent<Target>();
-            if(target != null)
+            TreeFall treeFall = hit.transform.GetComponent<TreeFall>();
+            if(treeFall != null)
             {
                 if(AxeTrue == true)
                 {
-                    target.TakeDamage(Damage);
+                    treeFall.TakeDamage(Damage);
                 }
+
+                Instantiate(impactEffect, hit.point, Quaternion.LookRotation(hit.normal)); 
             }
         }
     }

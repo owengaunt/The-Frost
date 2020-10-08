@@ -16,7 +16,6 @@ public class FpsMovement : MonoBehaviour
     public float runspeed;
     public float crouchspeed;
 
-
     public Transform groundCheck;
     CapsuleCollider theCollider;
 
@@ -83,6 +82,9 @@ public class FpsMovement : MonoBehaviour
             speed = walkspeed;
            
         }
+
+       
+
     }
         void DoCrouch()
     {
