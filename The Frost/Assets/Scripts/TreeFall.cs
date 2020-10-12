@@ -6,6 +6,7 @@ public class TreeFall : MonoBehaviour
 {
     public float health = 50f;
     public float thrust = 1.0f;
+
     public Rigidbody rb;
 
     public void Start()
@@ -18,16 +19,12 @@ public class TreeFall : MonoBehaviour
         health -= amount;
         if (health <= 0f)
         {
-            rb.AddForce(transform.forward * thrust);
-
-            Invoke("Die", 3);
-
-            
-        }
-        
-        void Die()
-        {
-            Destroy(gameObject);
+            Die();
         }
     }
+    void Die()
+    {
+        Destroy(gameObject);
+    }
+
 }
